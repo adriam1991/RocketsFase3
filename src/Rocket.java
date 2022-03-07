@@ -6,15 +6,8 @@ public class Rocket {
     private String code;
     public List<Propeller> powerPropellants = new ArrayList<>();
 
-    public List<Propeller> getPowerPropellants() {
-        return powerPropellants;
-    }
-
-    public void setPowerPropellants(List<Propeller> powerPropellants) {
-        this.powerPropellants = powerPropellants;
-    }
-
-    public Rocket(String code) {
+    public Rocket(String code) throws Exception {
+        checkCode(code);
         this.code = code;
     }
 
@@ -26,6 +19,11 @@ public class Rocket {
             i++;
         }
         return result;
+    }
+
+
+    private void checkCode(String code) throws Exception {
+        if (code.length() != 8) throw new Exception();
     }
 
     public void managePower(int maxPower) throws Exception {

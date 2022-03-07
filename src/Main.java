@@ -56,7 +56,7 @@ public class Main {
     }
 
     private static void printStatusResult(Rocket rocket) {
-        System.out.println("El coet " + rocket.getCode() + " es: " );
+        System.out.println("El coet " + rocket.getCode() + " te: " );
         System.out.println(rocket.printStatus());
     }
 
