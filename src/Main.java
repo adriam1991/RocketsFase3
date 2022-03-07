@@ -4,46 +4,74 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        // 1. Creem dos coets amb els codis “32WESSDS” I “LDSFJA32”.
-        Rocket rocket1 = new Rocket("32WESSDS");
-        Rocket rocket2 = new Rocket("LDSFJA32");
-        assignPowerRocket1(rocket1);
-        assignPowerRocket2(rocket2);
+        Rocket rocket1 = createRocket1();
+        Rocket rocket2 = createRocket2();
+        rocket1Accelerate3times(rocket1);
+        rocket2Accelerate3times(rocket2);
+        rocket1Decelerate5times(rocket1);
+        rocket2Accelerate7times(rocket2);
+        rocket1Accelerate15times(rocket1);
+        rocket2Accelerate15times(rocket2);
 
-        // 2. Mostrar a pantalla el codi dels coets, el nombre de propulsors que té i la potència
-        //màxima de cada propulsor.
-        printStatusResult(rocket1);
-        printStatusResult(rocket2);
+    }
 
-        // 3. Accelerar amb els coets tres cops
-        rocket1.accelerate(3);
-        rocket2.accelerate(3);
-
-        // 4. Mostrar a pantalla la potencia actual (suma de les potencies per propulsor)
-        calculateAndPrintTotalPower(rocket1);
-        calculateAndPrintTotalPower(rocket2);
-
-        //5. Frenar cinc cops amb el primer coet (“32WESSDS”) i accelerar set amb el segon coet.
-        rocket1.decelerate(5);
-        rocket2.accelerate(7);
-
-        //6. Mostrar a pantalla la potencia actual (suma de les potencies per propulsor)
-        calculateAndPrintTotalPower(rocket1);
-        calculateAndPrintTotalPower(rocket2);
-
-        //7. Accelerar 15 cops amb els dos coets.
-        rocket1.accelerate(15);
+    private static void rocket2Accelerate15times(Rocket rocket2) {
         rocket2.accelerate(15);
-
-        //8. Mostrar a pantalla la potencia actual
-        printStatusResult(rocket1);
+        System.out.println("Asceleracio 15 vegades:");
         printStatusResult(rocket2);
+
+    }
+
+    private static void rocket1Accelerate15times(Rocket rocket1) {
+        rocket1.accelerate(15);
+        System.out.println("Asceleracio 15 vegades:");
+        printStatusResult(rocket1);
+    }
+
+    private static void rocket2Accelerate7times(Rocket rocket2) {
+        rocket2.accelerate(7);
+        System.out.println("Asceleracio 7 vegades:");
+        calculateAndPrintTotalPower(rocket2);
+
+    }
+
+    private static void rocket1Decelerate5times(Rocket rocket1) {
+        rocket1.decelerate(5);
+        System.out.println("Desaleracio 3 vegades:");
+        calculateAndPrintTotalPower(rocket1);
+
+    }
+
+    private static void rocket2Accelerate3times(Rocket rocket2) {
+        rocket2.accelerate(3);
+        System.out.println("Aceleracio 3 vegades:");
+        calculateAndPrintTotalPower(rocket2);
+    }
+
+    private static void rocket1Accelerate3times(Rocket rocket1) {
+        rocket1.accelerate(3);
+        System.out.println("Aceleracio 3 vegades:");
+        calculateAndPrintTotalPower(rocket1);
+    }
+
+    private static Rocket createRocket2() throws Exception {
+        Rocket rocket2 = new Rocket("LDSFJA32");
+        assignPowerRocket2(rocket2);
+        printStatusResult(rocket2);
+        return rocket2;
+    }
+
+    private static Rocket createRocket1() throws Exception {
+        Rocket rocket1 = new Rocket("32WESSDS");
+        assignPowerRocket1(rocket1);
+        printStatusResult(rocket1);
+        return rocket1;
     }
 
     private static void assignPowerRocket1(Rocket rocket1) throws Exception {
-        rocket1.managePower( 10);
-        rocket1.managePower( 30);
-        rocket1.managePower( 80);
+        rocket1.managePower(10);
+        rocket1.managePower(30);
+        rocket1.managePower(80);
     }
 
     private static void assignPowerRocket2(Rocket rocket2) throws Exception {
@@ -56,7 +84,7 @@ public class Main {
     }
 
     private static void printStatusResult(Rocket rocket) {
-        System.out.println("El coet " + rocket.getCode() + " te: " );
+        System.out.println("El coet " + rocket.getCode() + " te: ");
         System.out.println(rocket.printStatus());
     }
 

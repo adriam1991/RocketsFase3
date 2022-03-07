@@ -30,6 +30,12 @@ public class Rocket {
         powerPropellants.add(createPropeller(maxPower));
     }
 
+    private Propeller createPropeller(int maxPower) throws Exception {
+        Propeller propeller = new Propeller();
+        propeller.setMaxPower(maxPower);
+        return propeller;
+    }
+
     public void accelerate(int times) {
         for (Propeller propeller : powerPropellants) {
             int count = 0;
@@ -57,11 +63,6 @@ public class Rocket {
         }
     }
 
-    private Propeller createPropeller(int maxPower) throws Exception {
-        Propeller propeller = new Propeller();
-        propeller.setMaxPower(maxPower);
-        return propeller;
-    }
 
     public String getCode() {
         return code;
