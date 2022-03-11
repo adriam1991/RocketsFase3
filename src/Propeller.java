@@ -4,7 +4,7 @@ public class Propeller {
     private int maxPower;
 
     public Propeller() {
-        this.currentPower = currentPower=0;
+        this.currentPower =0;
     }
 
     public void setMaxPower(int maxPower) {
@@ -20,18 +20,14 @@ public class Propeller {
 
     public void decreasePower(){
         this.currentPower = currentPower - 10;
-        if(currentPower<=0){
-            currentPower=0;
-        }
+       if(currentPower<=0){
+           currentPower=0;
+       }
 
     }
 
     public int getCurrentPower() {
         return currentPower;
-    }
-
-    public int getMaxPower() {
-        return maxPower;
     }
 
 

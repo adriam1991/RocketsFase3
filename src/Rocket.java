@@ -15,7 +15,7 @@ public class Rocket {
         String result = "";
         int i = 1;
         for (Propeller propeller : powerPropellants) {
-            result += "Propulsor " + i + " :" + propeller.getMaxPower() + " potencia\n";
+            result += "Propulsor " + i + " :" + propeller.getCurrentPower() + " potencia\n";
             i++;
         }
         return result;
