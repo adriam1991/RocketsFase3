@@ -1,28 +1,38 @@
 public class Propeller {
 
-    private int power;
+    private int currentPower;
     private int maxPower;
 
     public Propeller() {
+        this.currentPower = currentPower=0;
     }
 
-    public void addPower(){
-        this.power = power + 10;
+    public void setMaxPower(int maxPower) {
+        this.maxPower = maxPower;
     }
 
-    public void restPower(){
-        this.power = power - 10;
+    public void increasePower(){
+        this.currentPower += 10;
+        if(currentPower>maxPower){
+            currentPower=maxPower;
+        }
     }
 
-    public int getPower() {
-        return power;
+    public void decreasePower(){
+        this.currentPower = currentPower - 10;
+        if(currentPower<=0){
+            currentPower=0;
+        }
+
+    }
+
+    public int getCurrentPower() {
+        return currentPower;
     }
 
     public int getMaxPower() {
         return maxPower;
     }
 
-    public void setMaxPower(int maxPower) {
-        this.maxPower = maxPower;
-    }
+
 }

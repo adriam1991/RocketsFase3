@@ -4,14 +4,14 @@ import java.util.List;
 public class Rocket {
 
     private String code;
-    public List<Propeller> powerPropellants = new ArrayList<>();
+    private List<Propeller> powerPropellants = new ArrayList<>();
 
     public Rocket(String code) throws Exception {
         checkCode(code);
         this.code = code;
     }
 
-    public String printStatus() {
+    public String showPropellerStatus() {
         String result = "";
         int i = 1;
         for (Propeller propeller : powerPropellants) {
@@ -26,8 +26,9 @@ public class Rocket {
         if (code.length() != 8) throw new Exception();
     }
 
-    public void managePower(int maxPower) throws Exception {
-        powerPropellants.add(createPropeller(maxPower));
+    public void addPropeller(int maxPower) throws Exception {
+        Propeller p=createPropeller(maxPower);
+        powerPropellants.add(p);
     }
 
     private Propeller createPropeller(int maxPower) throws Exception {
@@ -36,31 +37,27 @@ public class Rocket {
         return propeller;
     }
 
-    public void accelerate(int times) {
+    public void accelerate() {
         for (Propeller propeller : powerPropellants) {
-            int count = 0;
-            while (count < times) {
-                if (propeller.getPower() < propeller.getMaxPower()) {
-                    propeller.addPower();
-                    count++;
-                } else {
-                    count = times;
-                }
-            }
+            propeller.increasePower();
         }
     }
 
-    public void decelerate(int times) {
-        for (Propeller propeller : powerPropellants) {
-            int count = 0;
-            while (count < times) {
-                if (propeller.getPower() > 0) {
-                    propeller.restPower();
-                } else {
-                    count = times;
-                }
+        public void decelerate() {
+            for (Propeller propeller : powerPropellants) {
+                propeller.decreasePower();
             }
         }
+
+    public static void calculateAndPrintTotalPower(Rocket rocket) {
+        List<Propeller> propellerList = rocket.powerPropellants;
+        int totalPower = 0;
+
+        for (Propeller propeller : propellerList) {
+            totalPower = totalPower + propeller.getCurrentPower();
+        }
+
+        System.out.println("Coet " + rocket.getCode() + "te potencia total de: " + totalPower);
     }
 
 
