@@ -36,14 +36,12 @@ public class Main {
     private static Rocket createRocket2() throws Exception {
         Rocket rocket2 = new Rocket("LDSFJA32");
         assignPowerRocket2(rocket2);
-        printStatusResult(rocket2);
         return rocket2;
     }
 
     private static Rocket createRocket1() throws Exception {
         Rocket rocket1 = new Rocket("32WESSDS");
         assignPowerRocket1(rocket1);
-        printStatusResult(rocket1);
         return rocket1;
     }
 
